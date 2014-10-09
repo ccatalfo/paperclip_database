@@ -145,7 +145,7 @@ module Paperclip
 
       def exists?(style = default_style)
         if original_filename
-          instance.send("#{@paperclip_files_association_name}").where(:style => style).exists?
+          instance.send("#{@paperclip_files_association_name}").where('style = ?' , style).exists?
         else
           false
         end
